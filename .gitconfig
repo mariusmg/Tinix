@@ -1,0 +1,55 @@
+[user]
+	name = Marius Gheorghe
+	email = gmarius@gmail.com
+[push]
+	default = matching
+[alias]
+	st = status
+	ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate
+	ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]--decorate --numstat
+	la = !git config -l | grep alias | cut -c 7-
+	addall = add -A
+	rstall = reset --hard HEAD
+	last = log -1 HEAD
+	dfl = diff HEAD^^
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = TortoiseMerge
+[diff]
+	guitool = tmerge
+[core]
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	quotepath = false
+	autocrlf = false
+[mergetool "BeyondCompare4"]
+	path = C:/Program Files/KDiff3/kdiff3.ex
+	cmd = \"C:/Program Files/KDiff3/kdiff3.ex\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+[difftool "BeyondCompare4"]
+	path = C:/Program Files/KDiff3/kdiff3.ex
+[difftool "beyondcompare4"]
+	path = C:/Program Files (x86)/Beyond Compare 4/bcompare.exe
+	cmd = \"C:/Program Files (x86)/Beyond Compare 4/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
+[http]
+	postBuffer = 524288000
+[difftool "kdiff3"]
+	path = C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe
+	cmd = \"C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "kdiff3"]
+	path = C:/Program Files/KDiff3/kdiff3.exe
+[mergetool "TortoiseMerge"]
+	path = C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe
+	cmd = \"C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe\" /base:\"$BASE\" /mine:\"$LOCAL\" /theirs:\"$REMOTE\" /merged:\"$MERGED\"
+[difftool "diffuse"]
+	path = C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe
+[difftool "tmerge"]
+	path = C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe
+	cmd = \"C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe\" \"$LOCAL\" \"$REMOTE\"
+
+
+[credential]
+helper = cache --timeout 30000
+
