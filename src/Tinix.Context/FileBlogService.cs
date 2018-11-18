@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace Tinix.Context
 {
@@ -17,14 +17,13 @@ namespace Tinix.Context
 
         private IMemoryCache cache;
 
-        private ILogger<FileBlogService> log;
+        private ILogger log = LogManager.GetCurrentClassLogger();
 
 
-        public FileBlogService(IMemoryCache cache, ILogger<FileBlogService> log)
+        public FileBlogService(IMemoryCache cache)
         {
             this.cache = cache;
-
-            this.log = log;
+            
         }
 
         public void Delete(string id)
@@ -53,12 +52,12 @@ namespace Tinix.Context
                 }
                 else
                 {
-                    log.LogError($"File {filePath} not found");
+                    log.Error($"File {filePath} not found");
                 }
             }
             catch (Exception ex)
             {
-                log.LogError(default(EventId), ex, ex.Message);
+                log.Error(ex);
             }
         }
 
